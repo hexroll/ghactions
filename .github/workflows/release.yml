@@ -11,7 +11,7 @@ jobs:
     permissions: write-all
     runs-on: ubuntu-latest
     outputs:
-      upload: ${{ steps.create-release.outputs.upload_url }}
+      upload: ${{ steps.create_release.outputs.upload_url }}
     steps:
       - name: Create Release
         id: create_release
