@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "ghactions"
+name = "hexroll3-app"
 version = "0.1.0"
