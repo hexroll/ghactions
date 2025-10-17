@@ -52,12 +52,17 @@ jobs:
       - uses: Swatinem/rust-cache@v1
       - name: Build
         run: cargo build --release --package hexroll3-app
+      - name: Zip assets
+        run: |
+          cd hexroll3-app
+          zip -r ../vvv.zip ../target/release/hexroll3-app.exe ./assets/*
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ needs.stage.outputs.upload }}
-          asset_path: target/release/hexroll3-app.exe
+          #asset_path: target/release/hexroll3-app.exe
+          asset_path: vvv.zip
           asset_name: hexroll3-windows
           asset_content_type: application/octet-stream
