@@ -55,7 +55,7 @@ jobs:
       - name: Zip assets
         run: |
           cd hexroll3-app
-          zip -r ../vvv.zip ../target/release/hexroll3-app.exe ./assets/*
+          7z a ../vvv.zip ../target/release/hexroll3-app.exe ./assets/*
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
         env:
