@@ -42,3 +42,22 @@ jobs:
           asset_path: target/release/hexroll3-app
           asset_name: hexroll3-macos
           asset_content_type: application/octet-stream
+
+  windows:
+    needs: stage
+    permissions: write-all
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: Swatinem/rust-cache@v1
+      - name: Build
+        run: cargo build --release --package hexroll3-app
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.stage.outputs.upload }}
+          asset_path: target/release/hexroll3-app
+          asset_name: hexroll3-windows
+          asset_content_type: application/octet-stream
