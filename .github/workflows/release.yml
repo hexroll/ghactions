@@ -58,6 +58,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ needs.stage.outputs.upload }}
-          asset_path: target/release/hexroll3-app
+          asset_path: target/release/hexroll3-app.exe
           asset_name: hexroll3-windows
           asset_content_type: application/octet-stream
